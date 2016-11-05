@@ -10,7 +10,7 @@ import repast.simphony.random.RandomHelper;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridBuilderParameters;
 import repast.simphony.space.grid.SimpleGridAdder;
-
+//test commit
 public class WildFireBuilder implements ContextBuilder<Object>
 {
 	@Override
