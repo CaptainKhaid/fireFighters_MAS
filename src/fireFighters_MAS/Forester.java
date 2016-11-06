@@ -8,6 +8,7 @@ import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.parameter.Parameters;
 import repast.simphony.random.RandomHelper;
 import repast.simphony.space.grid.Grid;
+import repast.simphony.space.grid.GridPoint;
 
 public class Forester
 {
@@ -368,11 +369,19 @@ public class Forester
 	{
 		for (Position f : k.getAllFire()) {	knowledge.addFire(f); }
 
-		// /TODO Add foresters and forest into the comparison
-
-		// ...
-		
-		//
+		//Add foresters into the comparison
+		for(Forester f : k.getAllForester())
+		{
+			Position p = knowledge.getForesterPosition(f);
+			knowledge.addForester(f, p);
+		}
+		//Add forests into the comparison
+		for(Forest f : k.getAllForest())
+		{
+			GridPoint grid = f.getGrid().getLocation(f);
+			Position p = new Position(grid.getX(), grid.getY());
+			knowledge.addForest(f, p);
+		}
 	}	
 	/**
 	 * Add a new fire to the forester's knowledge

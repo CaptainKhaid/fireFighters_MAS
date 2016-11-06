@@ -90,4 +90,9 @@ public class Forest
 	public void decreaseHealth(int amount){	this.health -= amount; }
 	// Local getters
 	public int getHealth() { return health; }
+	
+	public Grid<Object> getGrid()
+	{
+		return this.grid;
+	}
 }
