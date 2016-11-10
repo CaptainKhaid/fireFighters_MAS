@@ -120,8 +120,9 @@ public class Knowledge
 	public Position getForesterPosition(Forester f)
 	{
 		for (Position p : foresterKnowledge.keySet())
-		{			
-			if (f.equals(foresterKnowledge.get(p))) { return p; } // TODO May cause problems --> Need to implement equals method in Forester
+		{
+			//if (f.equals(foresterKnowledge.get(p))) { return p; } // TODO May cause problems --> Need to implement equals method in Forester
+			if (f.getId()==foresterKnowledge.get(p).getId()) { return p; } 
 		}
 		
 		return null;
