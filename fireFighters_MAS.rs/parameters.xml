@@ -28,7 +28,7 @@
 	<!-- FIRE END -->
 	<!-- ************************************* -->
 	<!-- WIND START-->
-	<parameter name="windDirection"	displayName="Wind Direction"	type="int"	defaultValue="0"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
+	<!--<parameter name="windDirection"	displayName="Wind Direction"	type="double"	defaultValue="0"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter" />-->
 	<!-- WIND END -->
 	<!-- ************************************* -->
 	<!-- GRID START -->

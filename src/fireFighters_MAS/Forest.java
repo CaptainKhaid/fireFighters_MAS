@@ -91,6 +91,10 @@ public class Forest
 	// Local getters
 	public int getHealth() { return health; }
 	
+	/**
+	 * get grid of the forest
+	 * @return Grid<Object>
+	 */
 	public Grid<Object> getGrid()
 	{
 		return this.grid;

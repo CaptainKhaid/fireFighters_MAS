@@ -39,8 +39,8 @@ public class Fire
 		Forest f = getForest(x, y);
 		
 		if (f != null) { f.decreaseHealth(category); }
-		//
-		int windDirection = ((Wind) context.getObjects(Wind.class).get(0)).getWindDirection();
+		int windDirection = Tools.translateDegreeToNumberOfField(((Wind) context.getObjects(Wind.class).get(0)).getWindDirection2());
+		//int windDirection = ((Wind) context.getObjects(Wind.class).get(0)).getWindDirection();
 		boolean hasRain = false;
 		
 		Iterable<Object> objects = grid.getObjectsAt(x, y);

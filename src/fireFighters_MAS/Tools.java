@@ -1,5 +1,6 @@
 package fireFighters_MAS;
 
+import repast.simphony.random.RandomHelper;
 import repast.simphony.space.grid.Grid;
 
 public class Tools
@@ -46,5 +47,45 @@ public class Tools
 	public static boolean isWithinBorders(int x, int y, Grid<Object> grid)
 	{
 		return (x >= 0 && y >= 0 && x < grid.getDimensions().getWidth() && y < grid.getDimensions().getHeight());
+	}
+	/**
+	 * method to translate the degree to the field it moves to
+	 * @param degree
+	 * @return 0 to 7
+	 */
+	public static int translateDegreeToNumberOfField(Vector v)
+	{
+		double degree = v.getDegree();
+		if(isBetween(degree,0,44)||isBetween(degree,316,360))
+		{
+			return 1;
+		}else if(degree==45)
+		{
+			return 2;
+		}else if(isBetween(degree,46,134))
+		{
+			return 3;
+		}else if(degree==135)
+		{
+			return 4;
+		}else if(isBetween(degree,136,224))
+		{
+			return 5;
+		}else if(degree==225)
+		{
+			return 6;
+		}else if(isBetween(degree,226,274))
+		{
+			return 7;
+		}else if(degree==315)
+		{
+			return 0;
+		}else{
+			return -1;
+		}
+	}
+	
+	private static boolean isBetween(double x, double lower, double upper) {
+		  return lower <= x && x <= upper;
 	}
 }

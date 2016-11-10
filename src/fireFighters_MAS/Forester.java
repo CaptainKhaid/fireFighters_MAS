@@ -372,7 +372,7 @@ public class Forester
 		//Add foresters into the comparison
 		for(Forester f : k.getAllForester())
 		{
-			Position p = knowledge.getForesterPosition(f);
+			Position p = k.getForesterPosition(f);
 			knowledge.addForester(f, p);
 		}
 		//Add forests into the comparison
@@ -408,7 +408,10 @@ public class Forester
 	/** Get a direction of wind within the current context */
 	private void checkWindDirection()
 	{
-		if (context != null) { windDirection = ((Wind) context.getObjects(Wind.class).get(0)).getWindDirection(); }
+		if (context != null) {
+			int windDirection = Tools.translateDegreeToNumberOfField(((Wind) context.getObjects(Wind.class).get(0)).getWindDirection2());
+			//int windDirection = ((Wind) context.getObjects(Wind.class).get(0)).getWindDirection();
+		}
 	}	
 	/**
 	 * Get a direction opposite to the known direction of the wind

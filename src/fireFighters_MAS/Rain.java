@@ -67,7 +67,9 @@ public class Rain
 	{
 		int windDirection = -1;
 		
-		if (context != null) { windDirection = ((Wind) context.getObjects(Wind.class).get(0)).getWindDirection(); }
+		if (context != null) { windDirection = Tools.translateDegreeToNumberOfField(((Wind) context.getObjects(Wind.class).get(0)).getWindDirection2());
+			//windDirection = ((Wind) context.getObjects(Wind.class).get(0)).getWindDirection();
+		}
 		
 		double randomnessDegree = 0.2;
 		int moveDirection = -1;
@@ -91,7 +93,9 @@ public class Rain
 		{		
 			int windDirection = -1;
 			
-			if (context != null) { windDirection = ((Wind) context.getObjects(Wind.class).get(0)).getWindDirection(); }
+			if (context != null) { windDirection = Tools.translateDegreeToNumberOfField(((Wind) context.getObjects(Wind.class).get(0)).getWindDirection2());
+				//windDirection = ((Wind) context.getObjects(Wind.class).get(0)).getWindDirection();
+			}
 			
 			int spawnDirection = -1;
 			
