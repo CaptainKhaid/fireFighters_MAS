@@ -18,6 +18,7 @@ public class Forester {
 	private int strength;
 	private Context<Object> context;
 	private int extinguishingDistance;
+	private int bounty;
 	// Local variables initialization
 	private int windDirection = -1;
 	private int genDirection = -1;
@@ -43,6 +44,7 @@ public class Forester {
 		this.id = id;
 		this.lifePoints = params.getInteger("forester_life");
 		this.strength = params.getInteger("forester_strength");
+		this.bounty=0;
 		this.extinguishingDistance = params.getInteger("forester_extinguishingDistance");
 	}
 
@@ -207,6 +209,10 @@ public class Forester {
 
 			if (fire != null) {
 				fire.decreaseLifetime(strength);
+				if(fire.getLifetime()<=0)
+				{
+					this.bounty++;
+				}
 			}
 		}
 	}
