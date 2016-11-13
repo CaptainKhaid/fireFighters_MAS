@@ -21,6 +21,8 @@ public class Forester {
 	private int bounty;
 	// Local variables initialization
 	private int windDirection = -1;
+	private boolean rain = false;
+	private int stepCall = 0;
 	private int genDirection = -1;
 	private boolean newInfo = false;
 	private Knowledge knowledge = new Knowledge();
@@ -60,20 +62,20 @@ public class Forester {
 		int x = grid.getLocation(this).getX();
 		int y = grid.getLocation(this).getY();
 		// Action part
-		checkWindDirection(); // Check wind direction
-
-		if (checkCell(x, y)) // If there is fire in the cell in which the
-								// forester is located
+		
+		if((windDirection == -1 )|| (stepCall % 10 == 0))
+		{
+			checkWindDirection(); // Check wind direction
+		}else if (checkCell(x, y)) // If there is fire in the cell in which the forester is located
 		{
 			standingInTheFire();
+		} else if((bounty >10) && (newInfo) ){ 		// Communication part
+			sendRadioMessage();
 		} else {
 			checkAreaForFire(x, y);
 			moveOrExtinguish();
-		}
-		// Communication part
-		if (newInfo) {
-			sendRadioMessage();
 		} // If some new info of interest was obtained, send it around
+		stepCall++;
 	}
 
 	@ScheduledMethod(start = 1, interval = 1)
@@ -103,6 +105,7 @@ public class Forester {
 															// extinguishingDistance
 			{
 				extinguishFire(direction, extinguishingDistance);
+				bounty++;
 				return;
 			} else if (distance > extinguishingDistance) // If fire is more than
 															// extinguishingDistance
@@ -496,7 +499,15 @@ public class Forester {
 			windDirection = Tools.translateDegreeToNumberOfField(((Wind) context.getObjects(Wind.class).get(0)).getWindDirection2());
 		}
 	}
-
+	
+/*	private void checkRain() {		TODO: Need to find a way to check, where Rain is
+		if(context != null) {
+			GridPoint rainPoint = ((Rain) context.getObjects(Rain.class).get(0)).getLocation());
+			GridPoint myPoint = 
+			//rain = Tools.translateDegreeToNumberOfField(((Wind) context.getObjects(Wind.class).get(0)).getWindDirection2());
+		}
+	}
+*/
 	public int getId() {
 		return this.id;
 	}
