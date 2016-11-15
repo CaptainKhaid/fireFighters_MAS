@@ -19,6 +19,7 @@ public class Forester {
 	private Context<Object> context;
 	private int extinguishingDistance;
 	private int bounty;
+	private int communicationCost;
 	// Local variables initialization
 	private int windDirection = -1;
 	private boolean rain = false;
@@ -46,6 +47,7 @@ public class Forester {
 		this.id = id;
 		this.lifePoints = params.getInteger("forester_life");
 		this.strength = params.getInteger("forester_strength");
+		this.communicationCost = params.getInteger("communication_cost");
 		this.bounty=0;
 		this.extinguishingDistance = params.getInteger("forester_extinguishingDistance");
 	}
@@ -69,12 +71,15 @@ public class Forester {
 		}else if (checkCell(x, y)) // If there is fire in the cell in which the forester is located
 		{
 			standingInTheFire();
-		} else if((bounty >10) && (newInfo) ){ 		// Communication part
-			sendRadioMessage();
-		} else {
+		}else {
 			checkAreaForFire(x, y);
 			moveOrExtinguish();
-		} // If some new info of interest was obtained, send it around
+		}
+		
+		if((bounty >10) && (newInfo) ){ 		 // If some new info of interest was obtained, send it around
+			sendRadioMessage();
+			this.bounty-=this.communicationCost;
+		} 
 		stepCall++;
 	}
 
