@@ -105,7 +105,6 @@ public class Forester {
 															// extinguishingDistance
 			{
 				extinguishFire(direction, extinguishingDistance);
-				bounty++;
 				return;
 			} else if (distance > extinguishingDistance) // If fire is more than
 															// extinguishingDistance

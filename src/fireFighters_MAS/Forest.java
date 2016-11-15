@@ -38,6 +38,7 @@ public class Forest
 	{
 		if (health <= 0) { context.remove(this); }
 	}
+	
 	/**
 	 * Spawn new forest objects at random on the grid and around the forest on empty cells
 	 */
