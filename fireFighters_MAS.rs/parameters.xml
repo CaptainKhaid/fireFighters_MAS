@@ -6,7 +6,10 @@
 	<parameter name="forester_strength"	displayName="Forester Strength"	type="int"	defaultValue="2"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
 	<parameter name="forester_extinguishingDistance"	displayName="Forester Extinguishing Distance"	type="int"	defaultValue="1"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
 	<parameter name="forester_life"	displayName="Forester Lifetime"	type="int"	defaultValue="1"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
-	<parameter name="forester_amount"	displayName="# Foresters"	type="int"	defaultValue="20"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
+	<parameter name="forester_amount"	displayName="# Foresters"	type="int"	defaultValue="20"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" /><parameter
+		name="communication_cost" displayName="Communication Cost" type="int"
+		defaultValue="5" isReadOnly="false" converter="repast.simphony.parameter.StringConverterFactory$IntConverter">
+</parameter>
 	<!-- FORSTER END-->						
 	<!-- ************************************* -->
 	<!-- FOREST START-->
