@@ -28,6 +28,7 @@
 	<parameter name="fire_strength"	displayName="Fire Strength"	type="int"	defaultValue="2"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
 	<parameter name="fire_count"	displayName="Fire Count"	type="int"	defaultValue="1"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
 	<parameter name="fire_lifetime"	displayName="Fire Lifetime"	type="int"	defaultValue="10"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
+	<parameter name="fire_randomFireProb"	displayName="Random Fire Probability"	type="double"	defaultValue="0.05"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter" />
 	<!-- FIRE END -->
 	<!-- ************************************* -->
 	<!-- WIND START-->
