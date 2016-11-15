@@ -78,7 +78,7 @@ public class Fire
 			Iterable<Object> objects = grid.getObjectsAt(targetX, targetY);
 			for (Object obj : objects)
 			{
-				if (obj.getClass() == Rain.class)
+				if (obj.getClass() == Rain.class || obj.getClass()!=Forest.class || obj.getClass()!=Fire.class)
 				{
 					return;
 				}

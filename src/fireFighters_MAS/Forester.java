@@ -446,6 +446,7 @@ public class Forester {
 	 *            - knowledge to compare to
 	 */
 	public void compareKnowledge(Knowledge k) {
+		//compare fire
 		for (Position f : k.getAllFire()) {
 			knowledge.addFire(f);
 		}
