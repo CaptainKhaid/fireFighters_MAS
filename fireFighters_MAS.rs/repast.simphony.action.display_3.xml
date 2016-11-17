@@ -3,38 +3,38 @@
   <type>2D</type>
   <styles>
     <entry>
-      <string>fireFighters_MAS.Forest</string>
-      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
-    </entry>
-    <entry>
       <string>fireFighters_MAS.Forester</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
-      <string>fireFighters_MAS.Rain</string>
+      <string>fireFighters_MAS.Forest</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
       <string>fireFighters_MAS.Fire</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
+    </entry>
+    <entry>
+      <string>fireFighters_MAS.Rain</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
   </styles>
   <editedStyles>
     <entry>
-      <string>fireFighters_MAS.Forest</string>
-      <string>fireFighters_MAS.Forest.style_0.xml</string>
-    </entry>
-    <entry>
       <string>fireFighters_MAS.Forester</string>
       <string>fireFighters_MAS.Forester.style_0.xml</string>
     </entry>
     <entry>
-      <string>fireFighters_MAS.Rain</string>
-      <string>fireFighters_MAS.Rain.style_0.xml</string>
+      <string>fireFighters_MAS.Forest</string>
+      <string>fireFighters_MAS.Forest.style_0.xml</string>
     </entry>
     <entry>
       <string>fireFighters_MAS.Fire</string>
       <string>fireFighters_MAS.Fire.style_0.xml</string>
+    </entry>
+    <entry>
+      <string>fireFighters_MAS.Rain</string>
+      <string>fireFighters_MAS.Rain.style_0.xml</string>
     </entry>
   </editedStyles>
   <netStyles/>
@@ -54,20 +54,20 @@
   <layoutInterval>0</layoutInterval>
   <layerOrder>
     <entry>
-      <string>fireFighters_MAS.Forest</string>
-      <int>0</int>
-    </entry>
-    <entry>
       <string>fireFighters_MAS.Forester</string>
       <int>1</int>
     </entry>
     <entry>
-      <string>fireFighters_MAS.Rain</string>
-      <int>3</int>
+      <string>fireFighters_MAS.Forest</string>
+      <int>0</int>
     </entry>
     <entry>
       <string>fireFighters_MAS.Fire</string>
       <int>2</int>
+    </entry>
+    <entry>
+      <string>fireFighters_MAS.Rain</string>
+      <int>3</int>
     </entry>
   </layerOrder>
   <projections>

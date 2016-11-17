@@ -15,6 +15,7 @@ public class Forest
 	private Grid<Object> grid;
 	private int health;
 	private Context<Object> context;
+	private Double randomRainProb;
 	/**
 	 * Custom constructor
 	 * @param context - context to which the forest is added
@@ -27,12 +28,32 @@ public class Forest
 		this.context = context;
 		this.grid = grid;
 		this.health = params.getInteger("forest_life");;
+		this.randomRainProb = params.getDouble("rain_randomRainProb");
+
 	}
+	
 	@ScheduledMethod(start = 1, interval = 10000)
 	public void regrowth()
 	{
-		grow();
+		addRandomRain();
 	}
+	
+	/**
+	 * Add some rain to the grid to a random place
+	 */
+	private void addRandomRain()
+	{		
+		if (RandomHelper.nextDoubleFromTo(0, 1) < randomRainProb)
+		{
+			int gridWidth = grid.getDimensions().getWidth();
+			int gridHeight = grid.getDimensions().getHeight();
+			int targetX = RandomHelper.nextIntFromTo(0, gridWidth - 1), targetY = RandomHelper.nextIntFromTo(0, gridHeight - 1);			
+			Rain rain = new Rain(context,grid);
+			context.add(rain);
+			grid.moveTo(rain, targetX, targetY);
+		}
+	}
+	
 	@ScheduledMethod(start = 1, interval = 1)
 	public void checkup()
 	{
