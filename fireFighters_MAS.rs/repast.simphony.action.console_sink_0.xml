@@ -1,0 +1,14 @@
+<repast.simphony.data2.engine.ConsoleSinkDescriptor>
+  <name>Count Output</name>
+  <dataSet>WildFireCounts</dataSet>
+  <delimiter>,</delimiter>
+  <format>TABULAR</format>
+  <sourceIds class="linked-hash-set">
+    <string>tick</string>
+    <string>Fire Count</string>
+    <string>Forest Count</string>
+    <string>Wind Direction</string>
+  </sourceIds>
+  <enabled>true</enabled>
+  <outputStream>OUT</outputStream>
+</repast.simphony.data2.engine.ConsoleSinkDescriptor>

@@ -13,7 +13,6 @@ import repast.simphony.space.grid.SimpleGridAdder;
 //test commit
 public class WildFireBuilder implements ContextBuilder<Object>
 {
-
 	@Override
 	public Context<Object> build(Context<Object> context) // Build a context of the simulation
 	{

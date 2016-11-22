@@ -4,7 +4,7 @@
 	<!-- ************************************* -->
 	<!-- FORESTER START-->
 	<parameter name="forester_strength"	displayName="Forester Strength"	type="int"	defaultValue="2"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
-	<parameter name="forester_extinguishingDistance"	displayName="Forester Extinguishing Distance"	type="int"	defaultValue="2"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
+	<parameter name="forester_extinguishingDistance"	displayName="Forester Extinguishing Distance"	type="int"	defaultValue="1"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
 	<parameter name="forester_life"	displayName="Forester Lifetime"	type="int"	defaultValue="1"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
 	<parameter name="forester_amount"	displayName="# Foresters"	type="int"	defaultValue="20"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" /><parameter
 		name="communication_cost" displayName="Communication Cost" type="int"
@@ -28,7 +28,7 @@
 	<parameter name="fire_strength"	displayName="Fire Strength"	type="int"	defaultValue="2"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
 	<parameter name="fire_count"	displayName="Fire Count"	type="int"	defaultValue="1"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
 	<parameter name="fire_lifetime"	displayName="Fire Lifetime"	type="int"	defaultValue="10"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$IntConverter" />
-	<parameter name="fire_randomFireProb"	displayName="Random Fire Probability"	type="double"	defaultValue="0.0005"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter" />
+	<parameter name="fire_randomFireProb"	displayName="Random Fire Probability"	type="double"	defaultValue="0.05"	isReadOnly="false"	converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter" />
 	<!-- FIRE END -->
 	<!-- ************************************* -->
 	<!-- WIND START-->
