@@ -34,7 +34,6 @@ public class Rain
 		this.moveRandomness = params.getDouble("rain_moveRandomness");
 		this.spawnProb = params.getDouble("rain_spawnProb");
 		this.vaporProb = params.getDouble("rain_vaporProb");
-		this.randomRainProb = params.getDouble("rain_randomRainProb");
 	}
 	/**
 	 * Rain step method
@@ -57,8 +56,6 @@ public class Rain
 		spawn();
 		move();
 		vapor();
-		
-		addRandomRain();
 	}
 	/**
 	 * Rain movement function
@@ -121,21 +118,7 @@ public class Rain
 	{		
 		if (RandomHelper.nextDoubleFromTo(0, 1) < vaporProb) { context.remove(this); }
 	}
-	/**
-	 * Add some rain to the grid to a random place
-	 */
-	private void addRandomRain()
-	{		
-		if (RandomHelper.nextDoubleFromTo(0, 1) < randomRainProb)
-		{
-			int gridWidth = grid.getDimensions().getWidth();
-			int gridHeight = grid.getDimensions().getHeight();
-			int targetX = RandomHelper.nextIntFromTo(0, gridWidth - 1), targetY = RandomHelper.nextIntFromTo(0, gridHeight - 1);			
-			Rain rain = new Rain(context,grid);
-			context.add(rain);
-			grid.moveTo(rain, targetX, targetY);
-		}
-	}
+
 	/**
 	 * Get location of this rain object
 	 * @return grid cell location of the object

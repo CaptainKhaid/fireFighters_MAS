@@ -15,6 +15,8 @@ public class Forest
 	private Grid<Object> grid;
 	private int health;
 	private Context<Object> context;
+	private Double randomRainProb;
+	private Double randomFireProb;
 	/**
 	 * Custom constructor
 	 * @param context - context to which the forest is added
@@ -26,13 +28,59 @@ public class Forest
 		
 		this.context = context;
 		this.grid = grid;
-		this.health = params.getInteger("forest_life");;
+		this.health = params.getInteger("forest_life");
+		this.randomRainProb = params.getDouble("rain_randomRainProb");
+		this.randomFireProb = params.getDouble("fire_randomFireProb");
 	}
 	@ScheduledMethod(start = 1, interval = 10000)
 	public void regrowth()
 	{
-		grow();
+//		grow();
+		addRandomRain();
+		catchRandomFire();
 	}
+	
+	/**
+	 * Add some rain to the grid to a random place
+	 */
+	private void addRandomRain()
+	{		
+		if (RandomHelper.nextDoubleFromTo(0, 1) < randomRainProb)
+		{
+			int gridWidth = grid.getDimensions().getWidth();
+			int gridHeight = grid.getDimensions().getHeight();
+			int targetX = RandomHelper.nextIntFromTo(0, gridWidth - 1), targetY = RandomHelper.nextIntFromTo(0, gridHeight - 1);			
+			Rain rain = new Rain(context,grid);
+			context.add(rain);
+			grid.moveTo(rain, targetX, targetY);
+		}
+	}
+	
+	/**
+	 * Add some Fire to the grid to a random place
+	 */
+	private void catchRandomFire()
+	{
+		if (RandomHelper.nextDoubleFromTo(0, 1) < randomFireProb)
+		{
+			int gridWidth = grid.getDimensions().getWidth();
+			int gridHeight = grid.getDimensions().getHeight();
+			int targetX = RandomHelper.nextIntFromTo(0, gridWidth - 1), targetY = RandomHelper.nextIntFromTo(0, gridHeight - 1);
+			Iterable<Object> objects = grid.getObjectsAt(targetX, targetY);
+			for (Object obj : objects)
+			{
+				if (obj.getClass() == Rain.class)
+				{
+					return;
+				}
+			}
+			Fire fire = new Fire(context,grid);
+			context.add(fire);
+			grid.moveTo(fire, targetX, targetY);
+		}
+
+	}
+	
 	@ScheduledMethod(start = 1, interval = 1)
 	public void checkup()
 	{
