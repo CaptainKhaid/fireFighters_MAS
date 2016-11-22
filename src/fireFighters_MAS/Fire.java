@@ -15,6 +15,7 @@ public class Fire
 	private Grid<Object> grid;
 	private int lifetime;	
 	private int category;
+	private double randomFireProb;
 	private Context<Object> context;
 	/**
 	 * Custom constructor
@@ -29,7 +30,7 @@ public class Fire
 		this.grid = grid;
 		this.lifetime = params.getInteger("fire_lifetime");
 		this.category = params.getInteger("fire_strength");
-		
+		this.randomFireProb = params.getDouble("fire_randomFireProb");
 	}
 	@ScheduledMethod(start = 1, interval = 20)
 	public void step() 
@@ -58,6 +59,7 @@ public class Fire
 		moveFire(windDirection, hasRain);
 		//		
 		decreaseLifetime();
+		catchRandomFire();
 		
 	}	
 	@ScheduledMethod(start = 1, interval = 20)
@@ -66,7 +68,28 @@ public class Fire
 		if (lifetime <= 0) { context.remove(this); }
 	}
 	
+	private void catchRandomFire()
+	{
+		if (RandomHelper.nextDoubleFromTo(0, 1) < randomFireProb)
+		{
+			int gridWidth = grid.getDimensions().getWidth();
+			int gridHeight = grid.getDimensions().getHeight();
+			int targetX = RandomHelper.nextIntFromTo(0, gridWidth - 1), targetY = RandomHelper.nextIntFromTo(0, gridHeight - 1);
+			Iterable<Object> objects = grid.getObjectsAt(targetX, targetY);
+			for (Object obj : objects)
+			{
+				if (obj.getClass() == Rain.class)
+				{
+					return;
+				}
+			}
+			Fire fire = new Fire(context,grid);
+			context.add(fire);
+			grid.moveTo(fire, targetX, targetY);
+		}
 
+	}
+	
 	/**
 	 *  Move the fire
 	 * @param direction - direction to move to
